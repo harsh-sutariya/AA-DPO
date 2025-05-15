@@ -1242,7 +1242,7 @@ class DPOTrainer(Trainer):
         # Stack all ratios into a single tensor to vectorize
         ratio_tensor = torch.stack(attention_ratios)
         # Compute hinge loss using differentiable torch operations
-        # losses = torch.clamp(threshold_tensor - ratio_tensor, min=0.0)
+        losses = torch.clamp(threshold_tensor - ratio_tensor, min=0.0)
         # losses = threshold_tensor - ratio_tensor
         losses = ratio_tensor
         return losses.mean()
@@ -1297,10 +1297,8 @@ class DPOTrainer(Trainer):
         )
         unscaled_dpo_losses = unscaled_dpo_losses.mean()
         dpo_losses = unscaled_dpo_losses * self.dpo_alpha
-        print("self.dpo_alpha: ",self.dpo_alpha)
         unscaled_sft_loss = self.get_sft_loss(policy_chosen_logits, chosen_labels) 
         sft_loss = unscaled_sft_loss * self.gamma
-        print("self.gamma: ", self.gamma)
 
         # Calculate attention loss for chosen samples
         num_of_images = batch["num_of_images"]
@@ -1330,7 +1328,7 @@ class DPOTrainer(Trainer):
         attention_loss = unscaled_attention_loss * self.lambda_attention
         unscaled_attention_loss = unscaled_attention_loss.unsqueeze(0) # Only for logging so all_gather can cat as cat doesn't work on scalar tensor
 
-        losses = dpo_losses + sft_loss - torch.log(attention_loss + 1e-4)
+        losses = dpo_losses + sft_loss + attention_loss # - torch.log(attention_loss + 1e-4)
 
         #self.lambda_attention losses = sft_loss # sft only
         # losses = dpo_losses # dpo only
