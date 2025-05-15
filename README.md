@@ -6,6 +6,8 @@ To train LLaVA1.5 you can run the below mentioned file. Please specify the wandb
 ```bash
 ./train/llava_hound_dpo/train_dpo_multi_hpc_a100.sh
 ```
+The training data can be found [here](https://huggingface.co/datasets/shaswat123/AA-DPO). You will require train.json(Prompt and QA pair) and images.zip(Image data).
+
 # Inference
 For inference, you can run the below mentioned file.
 ```
@@ -19,4 +21,4 @@ For optimizing inference using AdaptViz, run the below mentioned file
 ```
 
 # Data Generation
-To generate the necessary training data, you need to first genereate the multi-image augmentation by running the files in data_gen/gen_instruction execpt pixmo.ipynb(this is used for test data generation). To generate DPO dataset, run the files under "data_gen/gen_chosen_rejected". You can find the traning and testing data [here](https://huggingface.co/datasets/shaswat123/AA-DPO).
+To generate the necessary training data, you need to first genereate the multi-image augmentation by running the files in data_gen/gen_instruction execpt pixmo.ipynb(this is used for test data generation). To generate DPO dataset, run the files under "data_gen/gen_chosen_rejected". You can find the testing data [here](https://huggingface.co/datasets/shaswat123/AA-DPO). You will require: test_images_{pip/collage/sequence}.tar and you can find the jsons(prompt + QA pair) under data_gen/gen_instruction with 3 jsons.
