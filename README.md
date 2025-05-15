@@ -8,6 +8,8 @@ To train LLaVA1.5 you can run the below mentioned file. Please specify the wandb
 ```
 The training data can be found [here](https://huggingface.co/datasets/shaswat123/AA-DPO). You will require train.json(Prompt and QA pair) and images.zip(Image data).
 
+If you want SFT + Attention-Aware loss then change dpo_alpha to 0 and gamma to 1.0. If you want to DPO + Attention-Aware loss then change dpo_alpha to 1.0 and gamma to 0.0.
+
 # Inference
 For inference, you can run the below mentioned file.
 ```
