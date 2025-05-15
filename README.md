@@ -22,3 +22,8 @@ For optimizing inference using AdaptViz, run the below mentioned file
 
 # Data Generation
 To generate the necessary training data, you need to first genereate the multi-image augmentation by running the files in data_gen/gen_instruction execpt pixmo.ipynb(this is used for test data generation). To generate DPO dataset, run the files under "data_gen/gen_chosen_rejected". You can find the testing data [here](https://huggingface.co/datasets/shaswat123/AA-DPO). You will require: test_images_{pip/collage/sequence}.tar and you can find the jsons(prompt + QA pair) under data_gen/gen_instruction with 3 jsons.
+
+# Authors
+Shaswat Patel, Harsh Sutaria, Jeet Patel, Vishvesh Trivedi
+Department of Computer Science
+New York University
