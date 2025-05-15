@@ -25,5 +25,7 @@ To generate the necessary training data, you need to first genereate the multi-i
 
 # Authors
 Shaswat Patel, Harsh Sutaria, Jeet Patel, Vishvesh Trivedi
+
 Department of Computer Science
+
 New York University
