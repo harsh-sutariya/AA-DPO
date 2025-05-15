@@ -31,7 +31,7 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
     --lora_enable True --lora_r 128 --lora_alpha 256 --mm_projector_lr 2e-5 \
     --deepspeed ./zero2.json \
     --model_name_or_path "/scratch/spp9399/models/llava-v1.5-7b/snapshots/4481d270cc22fd5c4d1bb5df129622006ccd9234" \
-    --dpo_alpha 0 --beta 0.1 --gamma 0.0 \
+    --dpo_alpha 1.0 --beta 0.1 --gamma 0.0 \
     --version v1 \
     --data_path ${data_path} \
     --video_folder ${video_dir} \
